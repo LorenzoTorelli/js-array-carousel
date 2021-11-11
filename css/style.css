@@ -18,11 +18,11 @@ main {
     transform: translate(-50%, -50%);
     width: 50%;
     display: flex;
+    background-color: black;
 }
 
 #left-side {
     width: 80%;    
-    background-color: red;
 }
 
 #right-side {
@@ -61,6 +61,7 @@ main {
     padding: 10px;
     text-align: end;
     color: white;
+    width: 100%;
 }
 
 
@@ -71,7 +72,14 @@ main {
 }
 
 
+.d-item {
+    opacity: 0.6;
+}
 
+.d-selected {
+    opacity: 1;
+    border: 2px solid white;
+}
 .inactive {
     display: none;
 }
