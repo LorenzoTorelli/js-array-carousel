@@ -3,3 +3,29 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+main {
+  position: relative;
+}
+
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 60%;
+    background-color: royalblue;
+    display: flex;
+}
+
+#left-side {
+    width: 80%;    
+    background-color: red;
+}
+
+#right-side {
+    width: 20%;
+    background-color: green;
+}
