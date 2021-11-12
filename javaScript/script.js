@@ -32,7 +32,7 @@ let leftImg = '';
 for (k = 0; k < items.length; k++) {
     
     leftImg += 
-    `<div class = "l-item inactive" >
+    `<div class = "l-item " >
         <img src="${items[k]}" alt = "slider">
         <div class = "text" > 
             <h3>${title[k]}</h3>
@@ -60,15 +60,16 @@ const down = document.getElementById("arrow-down");
 i = 0;
 
 // creo il caso base 
-elements[0].classList.remove("inactive");
-elementsRight[0].classList.add("d-selected");
+elements[i].classList.add("active");
+elementsRight[i].classList.add("d-selected");
 
+// freccetta su 
 up.addEventListener("click", function() {
     if (i > 0) {
 
         // immagini di sinistra 
-        elements[i].classList.add("inactive");
-        elements[i-1].classList.remove("inactive");
+        elements[i].classList.remove("active");
+        elements[i-1].classList.add("active");
 
         // immagini di destra 
         elementsRight[i].classList.remove("d-selected");
@@ -79,8 +80,8 @@ up.addEventListener("click", function() {
     else if (i == 0) {
 
         // immagini di sinistra 
-        elements[i].classList.add("inactive");
-        elements[items.length-1].classList.remove("inactive");
+        elements[i].classList.remove("active");
+        elements[items.length-1].classList.add("active");
 
         // immagini di destra 
         elementsRight[i].classList.remove("d-selected");
@@ -90,13 +91,13 @@ up.addEventListener("click", function() {
 
 }) 
 
-
+// freccetta giù 
 down.addEventListener("click", function() {
     if (i < items.length-1) {
 
         // immagini di sinistra 
-        elements[i].classList.add("inactive");
-        elements[i+1].classList.remove("inactive");
+        elements[i].classList.remove("active");
+        elements[i+1].classList.add("active");
 
         // immagini di destra 
         elementsRight[i].classList.remove("d-selected");
@@ -107,8 +108,8 @@ down.addEventListener("click", function() {
     else if (i == items.length-1) {
         
         // immagini di sinistra 
-        elements[i].classList.add("inactive");
-        elements[0].classList.remove("inactive");
+        elements[i].classList.remove("active");
+        elements[0].classList.add("active");
         
         // immagini di destra 
         elementsRight[i].classList.remove("d-selected");
@@ -117,3 +118,25 @@ down.addEventListener("click", function() {
     }
 
 })
+console.log(i);
+
+
+
+for (let z = 0; z < elementsRight.length; z++) {
+    elementsRight[z].addEventListener("click", function() {
+        console.log(z);
+        elements[i].classList.remove("active");
+        elementsRight[i].classList.remove("d-selected");
+        i = z;
+        elements[i].classList.add("active");
+        elementsRight[i].classList.add("d-selected");
+
+        
+
+    
+    });
+
+
+} 
+
+
